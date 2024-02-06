@@ -93,4 +93,38 @@ class LinkedList
             }
         }
     }
+
+    void deleteByPosition(int position)
+    {
+        if(position<0)
+        {
+            cout << "invalid position" << endl;
+            return;
+        }
+        if(head==nullptr)
+        {
+            cout << "empty list" << endl;
+            return;
+        }
+        if(position==0)
+        {
+            Node* temp = head;
+            head = head->next;
+            delete temp;
+            return;
+        }
+        Node* current = head;
+        for(int i =0; current != nullptr && i<position-1; i++)
+        {
+            current = current->next;
+        }
+        if(current == nullptr || current->next == nullptr)
+        {
+            return;
+        }
+        Node* temp = current;
+        Node* prev = nullptr;
+        prev->next = current->next;
+        delete temp;
+    }
 };
