@@ -45,4 +45,17 @@ class LinkedList
             current->next = newNode;
         }
      }
+
+     void insertAfterNode(Node* prev, int data)
+     {
+        Node* newNode = new Node(data);
+        if(prev == nullptr)
+        {
+            cout << "Previous node cant be a null pointer" << endl;
+            return;
+        }
+        newNode->next = prev->next;
+        prev->next = newNode;
+     }
+     
 };  
