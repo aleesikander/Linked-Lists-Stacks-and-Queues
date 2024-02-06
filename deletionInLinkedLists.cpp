@@ -69,14 +69,27 @@ class LinkedList
             cout << "the list is already empty " << endl;
             return;
         }
-        Node* current = head;
-        while(current->next != nullptr)
+        
+        while(head != nullptr && head->value == value)
         {
-            if(current->value = value)
+            Node* toDelete = head;
+            head = head->next;
+            delete toDelete;
+        }
+        Node* current = head;
+        Node* prev = nullptr;
+        while(current != nullptr)
+        {
+            if(current->value==value)
             {
-                Node* temp = current;
+                Node* toDelete = current;
+                prev->next = current->next;
+                delete toDelete;
+            }
+            else
+            {
+                prev = current;
                 current = current->next;
-                delete temp;
             }
         }
     }
