@@ -127,4 +127,37 @@ class LinkedList
         prev->next = current->next;
         delete temp;
     }
+
+    void printlist()
+    {
+        if(head==nullptr)
+        {
+            cout << "List is empty" << endl;
+            return;
+        }
+        else
+        {
+            Node* current = head;
+            while(current->next!=nullptr)
+            {
+                cout << current->value << " ";
+                current = current->next;
+            }
+        }
+    }
+
+    ~LinkedList()
+    {
+        if(head==nullptr)
+        {
+            cout <<"list is empty " << endl;
+            return;
+        }
+        while(head!= nullptr)
+        {
+            Node* temp = head;
+            head = head->next;
+            delete temp;
+        }
+    }
 };
