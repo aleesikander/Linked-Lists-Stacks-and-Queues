@@ -48,4 +48,15 @@ class LinkedList
             current = current->next;
         }
     }
+
+    ~LinkedList()
+    {
+        Node* current = head;
+        while(current != nullptr)
+        {
+            Node* next = current->next;
+            delete current;
+            current = next;
+        }
+    }
 };
