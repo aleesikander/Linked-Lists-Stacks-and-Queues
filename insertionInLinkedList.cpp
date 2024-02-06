@@ -57,5 +57,37 @@ class LinkedList
         newNode->next = prev->next;
         prev->next = newNode;
      }
-     
+
+     void insertAtPosition(int position, int data)
+     {
+        Node* newNode = new Node(data);
+        if(position<0)
+        {
+            cout << "invalid position" << endl;
+            return;
+        }
+        if(position==0)
+        {
+            insertAtbeginning(data);
+            return;
+        }
+        if(head==nullptr)
+        {
+            head = newNode;
+            return;
+        }
+        Node* current = head;
+        for (int i =0; current != nullptr && i<position-1; i++)
+            {
+                current = current->next;
+            }
+            newNode->next = current->next;
+            current->next = newNode;
+        if( current== nullptr)
+        {
+            cout << "position is greater than number of nodes" << endl;
+            delete newNode;
+            return;
+        }
+     }
 };  
