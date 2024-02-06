@@ -38,4 +38,14 @@ class LinkedList
             current->next = newNode;
         }
     }
+
+    void traverse()
+    {
+        Node* current = head;
+        while(current != nullptr)
+        {
+            cout << current->value << " ";
+            current = current->next;
+        }
+    }
 };
