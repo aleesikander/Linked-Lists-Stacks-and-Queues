@@ -45,4 +45,39 @@ class LinkedList
         head = head->next;
         delete temp;
     }
+
+    void deleteFromEnd()
+    {
+        if(head==nullptr)
+        {
+            cout << "list is empty" << endl;
+            return;
+        }
+        Node* current = head;
+        while(current->next != nullptr)
+        {
+            current = current->next;
+        }
+        delete current->next;
+        current->next = nullptr;
+    }
+
+    void deleteByValue(int value)
+    {
+        if(head==nullptr)
+        {
+            cout << "the list is already empty " << endl;
+            return;
+        }
+        Node* current = head;
+        while(current->next != nullptr)
+        {
+            if(current->value = value)
+            {
+                Node* temp = current;
+                current = current->next;
+                delete temp;
+            }
+        }
+    }
 };
